@@ -1,0 +1,25 @@
+import numpy as np
+
+
+data = np.array([
+    [2000, 7.5, 85, 6.8],   # State 1
+    [1500, 10.2, 78, 5.5],  # State 2
+    [3000, 5.4, 90, 8.2],   # State 3
+    [1800, 8.3, 82, 6.0],   # State 4
+    [2200, 6.1, 88, 7.5],   # State 5
+])
+
+Calculate mean and standard deviation for each indicator
+mean_values = np.mean(data, axis=0)
+std_devs = np.std(data, axis=0)
+
+print("Mean values of indicators:", mean_values)
+print("Standard deviations of indicators:", std_devs)
+
+ Normalize data
+normalized_data = (data - mean_values) / std_devs
+
+ Correlation matrix to understand relationships between indicators
+correlation_matrix = np.corrcoef(normalized_data, rowvar=False)
+
+print("Correlation matrix:\n", correlation_matrix)
